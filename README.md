@@ -1,7 +1,5 @@
 # Job Application Pipeline
 
-> **Do not lie. Do not lose provenance. Do not waste human attention on automated rejection noise.**
-
 A local-first, scheduled batch pipeline for job discovery, resume tailoring, application submission, and rejection filtering.
 
 ---
