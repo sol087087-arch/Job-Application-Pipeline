@@ -20,7 +20,6 @@ This project responds to that reality:
 
 - Not a chatbot
 - Not a LinkedIn bot
-- Not a CAPTCHA bypass tool
 - Not a fake-identity or credential-evasion system
 
 ---
@@ -75,11 +74,8 @@ Fetch jobs
 
 The pipeline automates aggressively but never crosses these lines:
 
-- ❌ Do not lie on resumes or application forms
 - ❌ Do not invent employers, degrees, dates, certifications, tools, or production experience
-- ❌ Do not bypass CAPTCHA, MFA, identity checks, or anti-bot protections
 - ❌ Do not use proxy rotation, fingerprint spoofing, solver services, or fake identities
-- ❌ Do not commit credentials, cookies, resumes, personal configs, or private emails to Git
 - ❌ Do not submit false answers to knockout questions
 
 If a CAPTCHA, MFA challenge, or identity check appears, the pipeline **pauses** and marks the application as requiring manual checkpoint completion.
