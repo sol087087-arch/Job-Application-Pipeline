@@ -1,0 +1,55 @@
+{
+  "provider": "openrouter",
+  "models": {
+    "discovery_fetch_sort": {
+      "primary": "deepseek/deepseek-v4-flash",
+      "fallback": "qwen/qwen3.6-flash",
+      "prompt": "config/prompts/discovery_fetch_sort.md",
+      "temperature": 0.1
+    },
+    "bulk_job_extraction": {
+      "primary": "qwen/qwen3.6-flash",
+      "fallback": "deepseek/deepseek-v4-flash",
+      "prompt": "config/prompts/bulk_job_extraction.md",
+      "temperature": 0.0
+    },
+    "tailoring": {
+      "primary": "anthropic/claude-sonnet-4.6",
+      "fallback": "openai/gpt-5.2",
+      "prompt": "config/prompts/tailor_resume.md",
+      "temperature": 0.25
+    },
+    "resume_quality_audit": {
+      "primary": "deepseek/deepseek-v3.2",
+      "fallback": "openai/gpt-5.2",
+      "prompt": "config/prompts/resume_quality_audit.md",
+      "temperature": 0.0,
+      "must_differ_from_task": "tailoring"
+    },
+    "truth_guard": {
+      "primary": "openai/gpt-5.2",
+      "fallback": "anthropic/claude-sonnet-4.6",
+      "prompt": "config/prompts/truth_guard.md",
+      "temperature": 0.0
+    },
+    "form_fill": {
+      "primary": "qwen/qwen3.6-flash",
+      "fallback": "deepseek/deepseek-v4-flash",
+      "prompt": "config/prompts/form_fill.md",
+      "temperature": 0.0
+    },
+    "email_classify": {
+      "primary": "qwen/qwen3.6-flash",
+      "fallback": "deepseek/deepseek-v4-flash",
+      "prompt": "config/prompts/email_classify.md",
+      "temperature": 0.0
+    }
+  },
+  "policies": {
+    "require_independent_resume_quality_audit": true,
+    "block_if_quality_audit_model_matches_tailor": true,
+    "quality_audit_runs_after_tailoring": true,
+    "quality_audit_runs_before_truth_guard": false,
+    "truth_guard_runs_after_quality_audit": true
+  }
+}

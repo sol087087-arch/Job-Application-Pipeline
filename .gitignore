@@ -1,0 +1,10 @@
+private/
+artifacts/
+data/
+tmp*/
+__pycache__/
+*.pyc
+*.sqlite
+*.db
+.env
+.venv/

@@ -1,0 +1,372 @@
+# Copy this file to private/master_profile.yaml and fill it with the real
+# candidate evidence bank. This is not a single resume. It is the source of
+# truth from which tailored resumes, cover notes, and form answers are built.
+
+candidate:
+  name: null
+  location: null
+  timezone: "America/Los_Angeles"
+  language: "English"
+  work_authorization:
+    us_authorized: null
+    requires_sponsorship: null
+  contact:
+    email: null
+    phone: null
+    linkedin: null
+    github: null
+    portfolio: null
+
+targeting:
+  allowed_titles:
+    - "Applied AI Specialist"
+    - "LLM Evaluation Specialist"
+    - "AI Model Quality Analyst"
+    - "Prompt Evaluation Specialist"
+    - "AI Tooling Developer"
+    - "Data Quality Analyst"
+    - "Frontend AI Tools Developer"
+  preferred_work:
+    - "LLM evaluation"
+    - "AI model behavior analysis"
+    - "prompt testing"
+    - "data quality"
+    - "frontend AI tooling"
+  avoid_roles:
+    - "production C++ engineer"
+    - "video codec engineer"
+    - "GPU kernel engineer"
+    - "security clearance required"
+
+skills:
+  ai:
+    - "LLM evaluation"
+    - "model behavior evaluation"
+    - "prompt testing"
+    - "red teaming"
+    - "LoRA"
+    - "DPO-style workflows"
+    - "synthetic datasets"
+    - "human-authored datasets"
+    - "refusal quality"
+    - "persona consistency"
+    - "LLM-as-judge auditing"
+    - "small/local model optimization"
+    - "quantization"
+    - "PyTorch"
+    - "Python"
+    - "Hugging Face"
+    - "Ollama"
+    - "Unsloth"
+  frontend:
+    - "React"
+    - "JavaScript"
+    - "TypeScript"
+    - "HTML"
+    - "CSS"
+    - "Vite"
+    - "WordPress"
+    - "REST API integration"
+    - "browser local/session storage"
+  data_quality:
+    - "computer vision annotation"
+    - "object detection"
+    - "segmentation"
+    - "autonomous vehicle perception datasets"
+    - "QA"
+    - "random sampling"
+    - "human adjudication"
+  production:
+    - "game production"
+    - "character systems"
+    - "creative direction"
+    - "outsourcing pipelines"
+    - "cross-functional collaboration"
+
+evidence_bricks:
+  # Each brick is a reusable truthful unit. Tailoring may rephrase these, but
+  # must not invent claims outside the source brick and allowed mappings.
+  - id: "ai_eval_prompt_testing"
+    domains: ["ai", "data_quality"]
+    strength: "primary"
+    claim: "Evaluated LLM behavior through prompt testing, response comparison, and qualitative error analysis."
+    proof_notes:
+      - "Add concrete project/tool details here."
+    ats_keywords:
+      - "LLM evaluation"
+      - "prompt testing"
+      - "model behavior"
+      - "quality evaluation"
+    allowed_reframes:
+      - "AI model quality evaluation"
+      - "LLM output quality analysis"
+      - "prompt and response evaluation"
+
+  - id: "frontend_ai_tooling"
+    domains: ["frontend", "ai"]
+    strength: "primary"
+    claim: "Built frontend prototypes and browser-based tools using React, JavaScript, TypeScript, HTML, CSS, and REST APIs."
+    proof_notes:
+      - "Add project names, links, and scope here."
+    ats_keywords:
+      - "React"
+      - "TypeScript"
+      - "JavaScript"
+      - "REST API"
+      - "frontend tooling"
+    allowed_reframes:
+      - "frontend AI tooling"
+      - "internal evaluation tooling"
+      - "React-based workflow tools"
+
+  - id: "cv_data_quality"
+    domains: ["data_quality"]
+    strength: "primary"
+    claim: "Performed computer vision data quality work including annotation review, object detection, segmentation, QA sampling, and adjudication."
+    proof_notes:
+      - "Add dataset types, tooling, and measurable volume if available."
+    ats_keywords:
+      - "computer vision"
+      - "annotation"
+      - "object detection"
+      - "segmentation"
+      - "QA"
+    allowed_reframes:
+      - "visual data quality"
+      - "perception dataset QA"
+      - "human-in-the-loop data review"
+
+  - id: "game_production_cross_functional"
+    domains: ["production"]
+    strength: "supporting"
+    claim: "Coordinated creative production work across character systems, outsourcing pipelines, QA feedback, and cross-functional teams."
+    proof_notes:
+      - "Add studios/projects/titles only if safe and truthful."
+    ats_keywords:
+      - "production"
+      - "cross-functional collaboration"
+      - "creative direction"
+      - "QA feedback"
+    allowed_reframes:
+      - "cross-functional production coordination"
+      - "creative operations"
+      - "quality-focused production workflow"
+
+allowed_mappings:
+  "character design": "persona / behavior design"
+  "prompt testing": "LLM evaluation"
+  "local model experiments": "small/local model optimization"
+  "React prototype": "frontend AI tooling"
+  "CV annotation": "computer vision data quality"
+  "QA testing": "quality assurance / evaluation"
+  "game production": "cross-functional production workflow"
+
+forbidden_claims:
+  - "production C++"
+  - "H.264"
+  - "H.265"
+  - "video codec engineering"
+  - "CUDA kernel development"
+  - "GPU compiler engineering"
+  - "driver development"
+  - "active security clearance"
+  - "PhD"
+  - "Azure production deployment"
+  - "Kubernetes production operations"
+
+tailoring_rules:
+  default_mode: "autopilot"
+  user_review_required: false
+  allow_target_title_change: true
+  allow_rephrasing: true
+  allow_keyword_insertion_from_job_description: true
+  require_evidence_brick_for_each_resume_claim: true
+  regenerate_once_on_truth_guard_failure: true
+  require_resume_quality_audit: true
+  regenerate_once_on_quality_audit_failure: true
+  require_quality_audit_model_different_from_tailor: true
+  block_submission_if:
+    - "forbidden claim appears"
+    - "unsupported hard requirement is required by application form"
+    - "legal/work authorization answer is unknown"
+    - "model cannot map a generated claim to an evidence brick"
+    - "employer-facing resume contains metadata or model commentary"
+    - "resume quality audit does not pass"
+    - "resume quality audit used the same model as tailoring"
+
+form_answer_defaults:
+  identity:
+    first_name: null
+    last_name: null
+    full_name: null
+    preferred_name: null
+    email: null
+    phone: null
+    location: null
+    city: null
+    state: null
+    country: null
+    timezone: null
+    linkedin: null
+    github: null
+    portfolio: null
+
+  work_authorization:
+    # Fill these in private/master_profile.yaml. Keep null in the public example.
+    legally_authorized_to_work_us: null
+    requires_visa_sponsorship_now_or_future: null
+    can_work_remote_us: true
+    willing_to_relocate: false
+
+  availability:
+    start_date: "Immediately"
+    notice_period: "Immediately available"
+    preferred_schedule: "Full-time"
+    open_to_contract: true
+    open_to_part_time: true
+    open_to_full_time: true
+
+  compensation:
+    desired_salary_usd: null
+    desired_hourly_usd: null
+    salary_answer_strategy: "prefer_blank_then_negotiable"
+    negotiable_text: "Negotiable based on role scope and total compensation."
+
+  demographics:
+    veteran_status: "No"
+    disability_status: "Prefer not to answer"
+    gender: "Prefer not to answer"
+    race_ethnicity: "Prefer not to answer"
+
+  unsupported_requirements:
+    answer_no_to_unsupported_requirements: true
+    continue_after_no_on_knockout: true
+
+  eeo:
+    consent_to_process_application_data: true
+    receive_job_alerts: false
+    marketing_emails: false
+
+form_fill_policy:
+  mode: "instant_autopilot"
+  fill_known_fields_without_user_review: true
+  submit_without_user_review_if_truth_guard_passes: true
+  save_form_answers_json: true
+  save_submit_payload_redacted_json: true
+  redact_before_saving:
+    - "password"
+    - "token"
+    - "cookie"
+    - "authorization"
+    - "session"
+    - "csrf"
+
+  ask_human_only_for:
+    - "captcha"
+    - "mfa"
+    - "login_required"
+    - "identity_verification"
+    - "legal_attestation_not_in_profile"
+    - "work_authorization_unknown"
+    - "required_field_no_safe_answer"
+    - "file_upload_failed"
+
+  never_ask_human_for:
+    - "resume approval"
+    - "cover note approval"
+    - "routine demographics"
+    - "routine contact fields"
+    - "routine source/referral fields"
+
+  unknown_optional_field_strategy: "leave_blank"
+  unknown_required_field_strategy: "needs_manual_checkpoint"
+  unsupported_required_skill_strategy: "answer_no_then_continue_if_allowed"
+  captcha_strategy: "send_telegram_checkpoint_link"
+
+field_mappings:
+  resume_upload:
+    labels:
+      - "resume"
+      - "cv"
+      - "upload resume"
+      - "attach resume"
+      - "resume/cv"
+    answer_source: "generated_resume_pdf"
+
+  cover_letter:
+    labels:
+      - "cover letter"
+      - "cover note"
+      - "message to hiring manager"
+      - "why are you interested"
+    answer_source: "generated_cover_note"
+
+  linkedin:
+    labels:
+      - "linkedin"
+      - "linkedin url"
+      - "linkedin profile"
+    answer_source: "form_answer_defaults.identity.linkedin"
+
+  portfolio:
+    labels:
+      - "portfolio"
+      - "website"
+      - "personal website"
+      - "github"
+    answer_source: "best_available_profile_link"
+
+  referral:
+    labels:
+      - "referral"
+      - "referred by"
+      - "employee referral"
+    default_answer: "No"
+
+  source:
+    labels:
+      - "how did you hear about us"
+      - "source"
+      - "where did you hear about this job"
+    default_answer: "Company careers site"
+
+  sponsorship:
+    labels:
+      - "will you now or in the future require sponsorship"
+      - "require visa sponsorship"
+      - "employment visa"
+    answer_source: "form_answer_defaults.work_authorization.requires_visa_sponsorship_now_or_future"
+    null_strategy: "needs_manual_checkpoint"
+
+  work_authorization_us:
+    labels:
+      - "authorized to work in the united states"
+      - "legally authorized to work"
+      - "work authorization"
+    answer_source: "form_answer_defaults.work_authorization.legally_authorized_to_work_us"
+    null_strategy: "needs_manual_checkpoint"
+
+  salary_expectation:
+    labels:
+      - "desired salary"
+      - "salary expectation"
+      - "compensation expectation"
+      - "desired hourly rate"
+    answer_source: "compensation_strategy"
+
+short_answer_bank:
+  why_interested_default:
+    max_words: 90
+    answer: "I am interested because the role aligns with my work in AI evaluation, data quality, and practical tooling. I enjoy turning ambiguous model behavior or workflow problems into clear, testable feedback loops and useful systems."
+
+  ai_evaluation_summary:
+    max_words: 120
+    answer: "My relevant experience includes LLM behavior evaluation, prompt testing, refusal quality review, persona consistency checks, and human-centered data quality workflows. I am comfortable comparing outputs, identifying failure patterns, documenting edge cases, and turning evaluation findings into actionable improvements."
+
+  frontend_tools_summary:
+    max_words: 120
+    answer: "I have built frontend prototypes and workflow tools with React, JavaScript, TypeScript, HTML, CSS, Vite, REST API integration, and browser storage. I can create lightweight interfaces that make evaluation, review, or data workflows faster and easier to use."
+
+  data_quality_summary:
+    max_words: 120
+    answer: "My data quality background includes computer vision annotation review, object detection and segmentation QA, random sampling, human adjudication, and quality-focused review workflows for perception-style datasets."
